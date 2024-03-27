@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: guestbook-ui
+  name: app-2048
 spec:
   replicas: 1
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: guestbook-ui
+      app: app-2048
   template:
     metadata:
       labels:
-        app: guestbook-ui
+        app: app-2048
     spec:
       containers:
-      - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
-        name: guestbook-ui
+      - image: public.ecr.aws/l6m2t8p7/docker-2048:latest
+        name: app-2048
         ports:
         - containerPort: 80
         resources:
